@@ -1,4 +1,3 @@
-import { generateHTML } from '@/lib/util'
 import Form from './components/form';
 
 export default function Home() {
