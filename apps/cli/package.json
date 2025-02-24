@@ -1,19 +1,20 @@
 {
-  "name": "cli",
+  "name": "arcaway-cli",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc --noEmit && tsup"
+    "build": "tsup"
   },
   "type": "module",
-  "bin": "dist/index.js",
+  "bin": "build/index.js",
   "author": "Federico Vitale <mail@fedevitale.dev>",
   "license": "MIT",
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
+    "@workspace/common": "workspace:*",
     "arg": "^5.0.2",
     "tsup": "^8.3.6",
-    "@workspace/common": "workspace:*"
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^20"

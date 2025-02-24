@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import { generateHTML } from './util';
+import { generateHTML } from '@workspace/common';
 
 const Payload = z.object({
   url: z.string().url()
