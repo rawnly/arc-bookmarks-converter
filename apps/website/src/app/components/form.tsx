@@ -1,10 +1,17 @@
 'use client'
 
+import { ArrowUpRight } from 'lucide-react'
 import { action } from "@/lib/action"
 import { useActionState, useEffect } from "react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { useForm } from "react-hook-form"
+import { useFormStatus } from "react-dom"
 
 export default function Form() {
+  const status = useFormStatus()
   const [state, dispatch] = useActionState(action, { ok: false })
+  const form = useForm()
 
   useEffect(() => {
     if (!state.ok) return
@@ -24,16 +31,14 @@ export default function Form() {
   }, [state])
 
   return (
-    <form action={dispatch} className='flex items-center justify-start gap-8'>
-      <div className='flex items-start justify-center flex-col'>
-        <input autoFocus required className='block w-full rounded px-4 py-2 bg-transparent' name='url' type='url' placeholder='Paste your share url here' />
-        <small className='text-xs mt-2 opacity-30'>
-          100% privacy friendly. We don't store any data.
-        </small>
+    <form action={dispatch} className='flex flex-col gap-4'>
+      <div className='flex items-start justify-start gap-4'>
+        <Input {...form.register('url', { required: true })} autoFocus required name='url' type='url' placeholder='https://arc.net/space/ABCD-EFG' />
+        <Button variant='neutral' type='submit' disabled={status.pending || !form.formState.isValid || form.formState.isSubmitting}>
+          Grab Now
+          <ArrowUpRight size={16} />
+        </Button>
       </div>
-      <button type='submit' className='px-4 py-2 rounded-md bg-black text-white font-medium hover:opacity-80 text-center dark:bg-white dark:text-black shadow-sm'>
-        Download Now
-      </button>
     </form>
 
   )
