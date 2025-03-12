@@ -20,7 +20,7 @@ const NextData = z.object({
           data: z.object({
             tab: z.object({
               savedTitle: z.string(),
-              savedURL: z.string().url()
+              savedURL: z.string()
             }).nullish()
           }).nullish()
         }))
