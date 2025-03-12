@@ -14,8 +14,8 @@ const NextData = z.object({
           })
         }),
         items: z.array(z.object({
-          id: z.string().uuid(),
-          parentID: z.string().uuid().nullish(),
+          id: z.string(),
+          parentID: z.string().nullish(),
           title: z.string().nullish(),
           data: z.object({
             tab: z.object({
