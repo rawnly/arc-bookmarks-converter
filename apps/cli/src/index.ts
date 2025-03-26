@@ -8,7 +8,7 @@ const URL = z.string().url()
 
 function isValidURL(url: string) {
   if (!URL.safeParse(url).success) return false
-  return /^(https?:\/\/)?(www\.)?arc\.net\/?$/.test(url)
+  return /^(https?:\/\/)?(www\.)?arc\.net\/?/.test(url)
 }
 
 function help() {
