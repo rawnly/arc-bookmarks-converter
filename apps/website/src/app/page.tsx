@@ -24,7 +24,7 @@ export default function Home() {
 			<div className="fixed top-5 right-5 flex items-center gap-4">
 				<HowTo />
 
-				<Button data-s:event="source.click" variant="neutral" asChild>
+				<Button variant="neutral" asChild>
 					<a href="https://github.com/rawnly/arcaway">
 						Source <ExternalLink />
 					</a>
